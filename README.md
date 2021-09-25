@@ -1,3 +1,3 @@
 # TropicInt
 
-Property of @DinudaYaggahavita
+Property of @UvinduPathirana
