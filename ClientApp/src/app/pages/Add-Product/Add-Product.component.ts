@@ -20,6 +20,7 @@ import { environment } from '../../../environments/environment';
 export class AddProductComponent implements OnInit {
 
   public vegetableId: any;
+  public categoryId: any;
 
   private http: HttpClient;
   private baseUrl: string;
@@ -31,8 +32,9 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     this.vegetableId = this.route.snapshot.paramMap.get('vegetableid');
+    this.categoryId = this.route.snapshot.paramMap.get('categoryid');
     console.log(this.vegetableId);
-
+    console.log(this.categoryId);
   }
 
 }

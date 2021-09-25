@@ -9,7 +9,7 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'user/category/:categoryid', component: ProductsPageComponent },
-  { path: 'product/:vegetableid', component: AddProductComponent },
+  { path: 'product/:categoryid/:vegetableid', component: AddProductComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'about-us', component: AboutUsComponent }
 ];

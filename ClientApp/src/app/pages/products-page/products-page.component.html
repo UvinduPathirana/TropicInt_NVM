@@ -15,7 +15,8 @@
     </div>
     <div class="col-lg-7">
       <div>
-        <button style="margin-left: 58px; margin-top: 1pc;" class="btn btn-success" [routerLink]="['/product/new']">Add
+        <button style="margin-left: 58px; margin-top: 1pc;" class="btn btn-success"
+          [routerLink]="['/product/' + categoryId + '/new']">Add
           Product</button>
       </div>
     </div>
@@ -26,12 +27,13 @@
         <div class="col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated" *ngFor="let product of products">
           <div class="product">
             <a class="img-prod"><img class="img-fluid" src="../../../assets/images/{{ product.Image }}"
-                [routerLink]="['/product/' + product.Id ]" routerLinkActive="router-link-active"
-                alt="Colorlib Template">
+                [routerLink]="['/product/' + product.categoryId + '/' + product.Id ]"
+                routerLinkActive="router-link-active" alt="Colorlib Template">
               <div class="overlay"></div>
             </a>
             <div class="text py-3 pb-4 px-3 text-center">
-              <h3><a [routerLink]="['/product/' + product.Id ]" routerLinkActive="router-link-active">{{
+              <h3><a [routerLink]="['/product/' + product.categoryId + '/' + product.Id ]"
+                  routerLinkActive="router-link-active" routerLinkActive="router-link-active">{{
                   product.Name}}</a></h3>
               <button type="button" class="btn btn-outline-secondary" (click)="removeProduct(product);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash"

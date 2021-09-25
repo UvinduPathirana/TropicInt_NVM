@@ -17,6 +17,7 @@ import { environment } from '../../../environments/environment';
 export class ProductComponent implements OnInit {
 
   @Input('vegetableId') vegetableId: any;
+  @Input('categoryId') categoryId: any;
 
   private http: HttpClient;
   private baseUrl: string;
@@ -66,7 +67,7 @@ export class ProductComponent implements OnInit {
       this.product = {
         Id: null,
         Name: '',
-        CategoryId: null,
+        CategoryId: this.categoryId,
         Image: '',
       }
     }
