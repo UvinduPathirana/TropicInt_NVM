@@ -18,6 +18,8 @@ export class ProductsPageComponent implements OnInit {
   public products: any;
   public vegetable: any;
   public categoryId: any;
+  public category: string;
+
 
   constructor(
     http: HttpClient, private router: Router,
@@ -50,9 +52,27 @@ export class ProductsPageComponent implements OnInit {
     // selectedDeleteTag == null;
   }
 
+
+  checkCategory() {
+    if (this.categoryId == 1) {
+      this.category = "Vegetable"
+    }
+    else if (this.categoryId == 2) {
+      this.category = "Fruit"
+    }
+    else if (this.categoryId == 3) {
+      this.category = "Fresh Cut Foliage"
+    }
+    else if (this.categoryId == 4) {
+      this.category = "Other"
+    }
+  }
+
   ngOnInit() {
     this.categoryId = this.route.snapshot.paramMap.get('categoryid');
     console.log(this.categoryId);
+    this.checkCategory();
+    console.log(this.category);
     let self = this;
     this.http.get<Products[]>(this.baseUrl + 'categories/' + this.categoryId)
       .subscribe(

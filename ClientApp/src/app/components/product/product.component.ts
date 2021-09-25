@@ -96,6 +96,7 @@ export class ProductComponent implements OnInit {
         }
       )
   }
+
   ngOnInit() {
     console.log(this.vegetableId);
     this.getProduct();
