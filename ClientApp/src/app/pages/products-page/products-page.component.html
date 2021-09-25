@@ -8,15 +8,28 @@
     </div>
   </div>
 </div>
-<div class="row" *ngIf="products">
-  <div class="col-lg-12">
+<div *ngIf="products">
+  <div class="row">
+    <button
+      style="margin-left: 58px;margin-top: 1pc;display: flex;justify-content: center;margin: auto;margin-top: 1pc;"
+      class="btn btn-success" [routerLink]="['/product/' + categoryId + '/new']">Add
+      {{ category }}</button>
+    <div class="col-lg-11">
+
+    </div>
+
+    <div class="col-lg-1">
+
+    </div>
+  </div>
+  <!-- <div class="col-lg-12">
     <div>
       <button
         style="margin-left: 58px;margin-top: 1pc;display: flex;justify-content: center;margin: auto;margin-top: 1pc;"
         class="btn btn-success" [routerLink]="['/product/' + categoryId + '/new']">Add
         {{ category }}</button>
     </div>
-  </div>
+  </div> -->
   <section class="ftco-section">
     <div class="container">
       <div class="row" *ngIf="products">
@@ -51,3 +64,4 @@
       </div>
     </div>
   </section>
+</div>

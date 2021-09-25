@@ -7,13 +7,6 @@
           id="exampleFormControlInput1" placeholder="Name">
       </div>
       <div class="form-group">
-        <label for="exampleFormControlSelect1">Select Category</label>
-        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="product.CategoryId"
-          [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let category of categories">{{ category.Id }}</option>
-        </select>
-      </div>
-      <div class="form-group">
         <label for="exampleFormControlInput1">Product Image Path</label>
         <input type="name" [(ngModel)]="product.Image" [ngModelOptions]="{standalone: true}" class="form-control"
           id="exampleFormControlInput1" placeholder="Image Path">
