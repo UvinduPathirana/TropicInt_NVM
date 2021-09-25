@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../../environments/environment';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-products-page',
@@ -20,7 +21,7 @@ export class ProductsPageComponent implements OnInit {
 
   constructor(
     http: HttpClient, private router: Router,
-    private route: ActivatedRoute, private toastr: ToastrService
+    private route: ActivatedRoute, private toastr: ToastrService, public _location: Location
   ) {
     this.http = http;
     this.baseUrl = environment.BASE_URL;
