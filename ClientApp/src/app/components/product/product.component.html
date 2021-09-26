@@ -12,6 +12,17 @@
           id="exampleFormControlInput1" placeholder="Image Path">
       </div>
     </form>
+    <div style="text-align: center">
+      <form>
+        <div>
+          <input type="file" name="image" (change)="selectImage($event)" />
+        </div>
+        <br>
+        <div>
+          <button type="submit" (click)="onSubmit()">Upload</button>
+        </div>
+      </form>
+    </div>
     <button class="btn btn-success" (click)="saveProduct()">Save</button>
   </div>
 </div>

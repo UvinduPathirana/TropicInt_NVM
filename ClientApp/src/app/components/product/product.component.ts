@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
 
   private http: HttpClient;
   private baseUrl: string;
+  images;
 
   public categories: Categories[]
   public product: Products;
@@ -30,6 +31,25 @@ export class ProductComponent implements OnInit {
     this.http = http;
     this.baseUrl = environment.BASE_URL;
     this.toastr = toastr;
+  }
+
+  // Image upload
+
+  selectImage(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.images = file;
+    }
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.images);
+
+    this.http.post<any>('http://localhost:3000/file', formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
   }
 
   saveProduct() {
@@ -54,7 +74,6 @@ export class ProductComponent implements OnInit {
           function (data) {
             self.toastr.success("Updated Stage Successfully");
             console.log("updated successfully");
-
           }
         )
     }
