@@ -48,7 +48,6 @@ export class ProductComponent implements OnInit {
     const self = this;
     const formData = new FormData();
     formData.append('file', this.images);
-    console.log(this.filename);
     this.http.post<any>('http://localhost:3000/file', formData)
       .subscribe(
         // (res) => (console.log(res.filename)),
