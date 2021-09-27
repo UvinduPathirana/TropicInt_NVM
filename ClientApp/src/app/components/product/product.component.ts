@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
 
   private http: HttpClient;
   private baseUrl: string;
+  public filename: any;
   images;
 
   public categories: Categories[]
@@ -39,17 +40,20 @@ export class ProductComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.images = file;
+      // this.filename = file.originalname;
     }
   }
 
   onSubmit() {
     const formData = new FormData();
     formData.append('file', this.images);
-
-    this.http.post<any>('http://localhost:3000/file', formData).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
-    );
+    console.log(this.filename);
+    this.http.post<any>('http://localhost:3000/file', formData)
+      .subscribe(
+        (res) => (console.log(res.filename)),
+        // (res) => this.filename = (res.filename),
+        (err) => console.log(err),
+      );
   }
 
   saveProduct() {
@@ -62,8 +66,9 @@ export class ProductComponent implements OnInit {
             self.product = data;
             // self.router.navigate(['/dashboard/organization/' + self.organizationId + '/stages/' + self.stage.id]);
             self.toastr.success("Saved Successfully");
+            console.log(self.product);
+            // this.product.Image = this.images.originalname;
             console.log("saved successfully");
-
           }
         )
     }
@@ -87,7 +92,7 @@ export class ProductComponent implements OnInit {
         Id: null,
         Name: '',
         CategoryId: this.categoryId,
-        Image: '',
+        Image: this.filename,
       }
     }
     else

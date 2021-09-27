@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 const multer = require('multer');
 
+const namein = null;
+
 const app = express();
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -21,9 +23,12 @@ const storage = multer.diskStorage({
         callBack(null, 'uploads')
     },
     filename: (req, file, callBack) => {
-        callBack(null, `FunOfHeuristic_${file.originalname}`)
+        callBack(null, `${file.originalname}`)
+        self.namein = file.originalname
     }
   })
+
+  console.log(self.name)
   
 const upload = multer({ storage: storage })
 
