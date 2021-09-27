@@ -45,15 +45,17 @@ export class ProductComponent implements OnInit {
   }
 
   onSubmit() {
+    const self = this;
     const formData = new FormData();
     formData.append('file', this.images);
     console.log(this.filename);
     this.http.post<any>('http://localhost:3000/file', formData)
       .subscribe(
-        (res) => (console.log(res.filename)),
-        // (res) => this.filename = (res.filename),
+        // (res) => (console.log(res.filename)),
+        (res) => self.product.Image = res.filename,
         (err) => console.log(err),
       );
+    console.log(self.product.Image);
   }
 
   saveProduct() {
@@ -87,12 +89,13 @@ export class ProductComponent implements OnInit {
   getProduct() {
     //let self = this;
     // check if:: new lot
+    let self = this;
     if (this.vegetableId == "new") {
       this.product = {
         Id: null,
         Name: '',
         CategoryId: this.categoryId,
-        Image: this.filename,
+        Image: self.filename,
       }
     }
     else
